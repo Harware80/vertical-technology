@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Refacciones | VERTICAL TECHNOLOGY</title>
@@ -21,13 +18,13 @@ font-family:'Montserrat',sans-serif;
 }
 
 body{
-background:#0b1220;
+background:#081120;
 color:white;
 }
 
 header{
-background:#05070d;
 padding:25px 40px;
+background:#050b16;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -41,76 +38,84 @@ color:#00b7ff;
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
 padding:50px;
 }
 
 .card{
-background:#121c2f;
-padding:25px;
+background:#111c33;
 border-radius:25px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
+overflow:hidden;
 }
 
 .card img{
 width:100%;
-height:220px;
+height:260px;
 object-fit:cover;
-border-radius:20px;
-margin-bottom:20px;
+}
+
+.card-content{
+padding:25px;
 }
 
 .card h3{
-color:#00b7ff;
-margin-bottom:10px;
+font-size:28px;
+margin-bottom:15px;
+}
+
+.card p{
+color:#d7d7d7;
+margin-bottom:15px;
+line-height:1.6;
 }
 
 .price{
-font-size:24px;
-font-weight:700;
-margin:15px 0;
+font-size:30px;
+font-weight:800;
+color:#00b7ff;
+margin-bottom:20px;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:18px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 background:#00b7ff;
 color:white;
+font-size:18px;
 font-weight:700;
 cursor:pointer;
-margin-top:15px;
 }
 
-.cart{
-background:#121c2f;
-margin:50px;
-padding:30px;
+button:hover{
+background:#0095d4;
+}
+
+#cart{
+position:fixed;
+right:20px;
+top:120px;
+width:350px;
+background:#111c33;
+padding:25px;
 border-radius:25px;
-}
-
-.cart h2{
-margin-bottom:20px;
-color:#00b7ff;
+max-height:80vh;
+overflow:auto;
 }
 
 .cart-item{
-margin-bottom:10px;
-padding:10px;
-background:#0b1220;
-border-radius:10px;
+margin-bottom:15px;
+padding-bottom:15px;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .total{
-margin-top:20px;
-font-size:24px;
+font-size:28px;
 font-weight:800;
+margin-top:20px;
+color:#00b7ff;
 }
 
 input{
@@ -118,20 +123,28 @@ width:100%;
 padding:15px;
 margin-top:15px;
 border:none;
-border-radius:12px;
-background:#0b1220;
+border-radius:10px;
+background:#081120;
 color:white;
 }
 
-footer{
-background:#05070d;
-padding:40px;
-text-align:center;
-margin-top:50px;
+@media(max-width:900px){
+
+#cart{
+position:relative;
+width:90%;
+margin:30px auto;
+top:auto;
+right:auto;
+}
+
+.products{
+padding:20px;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -143,114 +156,105 @@ VERTICAL TECHNOLOGY
 </div>
 
 <a href="index.html" style="color:white;text-decoration:none;">
-Volver al Inicio
+Volver
 </a>
 
 </header>
 
-<div class="products">
+<div class="products" id="products"></div>
 
-<div class="card">
+<div id="cart">
 
-<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1200" alt="Botonera">
-
-<h3>Botonera de Elevador</h3>
-
-<p>
-Botonera profesional compatible con múltiples sistemas de elevación.
-</p>
-
-<div class="price">
-$4,500 MXN
-</div>
-
-<button onclick="addToCart('Botonera de Elevador',4500)">
-Agregar al carrito
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200" alt="Variador">
-
-<h3>Variador de Frecuencia</h3>
-
-<p>
-Variador profesional para control de elevadores y automatización.
-</p>
-
-<div class="price">
-$18,900 MXN
-</div>
-
-<button onclick="addToCart('Variador de Frecuencia',18900)">
-Agregar al carrito
-</button>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=1200" alt="Tarjeta">
-
-<h3>Tarjeta Electrónica</h3>
-
-<p>
-Tarjeta electrónica especializada para sistemas de elevación.
-</p>
-
-<div class="price">
-$9,800 MXN
-</div>
-
-<button onclick="addToCart('Tarjeta Electrónica',9800)">
-Agregar al carrito
-</button>
-
-</div>
-
-</div>
-
-<div class="cart">
-
-<h2>
-Cotización de Refacciones
+<h2 style="margin-bottom:20px;color:#00b7ff;">
+Cotización
 </h2>
 
 <div id="cartItems"></div>
 
 <div class="total" id="total">
-Total: $0 MXN
+$0 MXN
 </div>
 
-<input type="text" id="name" placeholder="Nombre del cliente">
+<input type="text" id="clientName" placeholder="Nombre">
 
-<input type="email" id="email" placeholder="Correo electrónico">
+<input type="email" id="clientEmail" placeholder="Correo">
 
-<input type="tel" id="phone" placeholder="Teléfono">
+<input type="tel" id="clientPhone" placeholder="Teléfono">
 
-<button onclick="sendQuotation()">
+<button onclick="sendQuote()">
 Solicitar Cotización
 </button>
 
 </div>
 
-<footer>
-
-<p>
-© 2026 VERTICAL TECHNOLOGY - Todos los derechos reservados.
-</p>
-
-</footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
 
-let cart=[];
+const firebaseConfig = {
+apiKey: "AIzaSyCFuqPFMI66oc7sKMBTWAtJTUkvuCScubs",
+authDomain: "vertical-technology-592c7.firebaseapp.com",
+projectId: "vertical-technology-592c7",
+storageBucket: "vertical-technology-592c7.appspot.com",
+messagingSenderId: "852661748457",
+appId: "1:852661748457:web:61438c40c89ec5843ce678"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+let cart = [];
+
+async function loadProducts(){
+
+const productsDiv = document.getElementById('products');
+
+productsDiv.innerHTML = "";
+
+const snapshot = await db.collection("productos").get();
+
+snapshot.forEach(doc=>{
+
+const product = doc.data();
+
+productsDiv.innerHTML += `
+
+<div class="card">
+
+<img src="${product.image}">
+
+<div class="card-content">
+
+<h3>${product.name}</h3>
+
+<p>${product.description}</p>
+
+<div class="price">
+$${product.price} MXN
+</div>
+
+<button onclick="addToCart('${product.name}','${product.price}')">
+Agregar al carrito
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
 
 function addToCart(name,price){
 
-cart.push({name,price});
+cart.push({
+name,
+price
+});
 
 renderCart();
 
@@ -258,60 +262,61 @@ renderCart();
 
 function renderCart(){
 
-const cartItems=document.getElementById('cartItems');
+const cartItems = document.getElementById('cartItems');
 
-cartItems.innerHTML='';
+cartItems.innerHTML = "";
 
-let total=0;
+let total = 0;
 
 cart.forEach(item=>{
 
 cartItems.innerHTML += `
+
 <div class="cart-item">
-${item.name} - $${item.price.toLocaleString()} MXN
+
+<strong>${item.name}</strong><br>
+
+$${item.price} MXN
+
 </div>
+
 `;
 
-total += item.price;
+total += Number(item.price);
 
 });
 
-document.getElementById('total').innerHTML =
-'Total: $'+total.toLocaleString()+' MXN';
+document.getElementById('total').innerHTML = `$${total} MXN`;
 
 }
 
-function sendQuotation(){
+function sendQuote(){
 
-const name=document.getElementById('name').value;
+const name = document.getElementById('clientName').value;
+const email = document.getElementById('clientEmail').value;
+const phone = document.getElementById('clientPhone').value;
 
-const email=document.getElementById('email').value;
-
-const phone=document.getElementById('phone').value;
-
-if(cart.length===0){
-
-alert('Agrega productos al carrito');
-
-return;
-
-}
-
-let products='';
+let products = "";
 
 cart.forEach(item=>{
 
-products += item.name+' - $'+item.price+' MXN%0D%0A';
+products += `${item.name} - $${item.price} MXN%0D%0A`;
 
 });
 
+const body = `Cliente: ${name}%0D%0A
+Correo: ${email}%0D%0A
+Telefono: ${phone}%0D%0A%0D%0A
+Productos:%0D%0A${products}`;
+
 window.location.href =
-`mailto:luxascensores@gmail.com?subject=Cotización Refacciones&body=Cliente: ${name}%0D%0ACorreo: ${email}%0D%0ATeléfono: ${phone}%0D%0A%0D%0AProductos:%0D%0A${products}`;
+`mailto:luxascensores@gmail.com?subject=Cotizacion Refacciones&body=${body}`;
 
 }
+
+loadProducts();
 
 </script>
 
 </body>
-
 </html>
