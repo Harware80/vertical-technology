@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel | VERTICAL TECHNOLOGY</title>
+
+<title>Panel Administrativo | VERTICAL TECHNOLOGY</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -19,17 +23,20 @@ font-family:'Montserrat',sans-serif;
 body{
 background:#0b1220;
 color:white;
+min-height:100vh;
 padding:40px;
 }
 
-.login-box,
-.panel{
+.login-container,
+.panel-container{
+
 max-width:500px;
 margin:auto;
 background:#121c2f;
 padding:40px;
 border-radius:25px;
-margin-top:50px;
+margin-top:40px;
+
 }
 
 h1{
@@ -39,79 +46,118 @@ color:#00b7ff;
 }
 
 input{
+
 width:100%;
 padding:15px;
-margin-bottom:20px;
 border:none;
 border-radius:12px;
+margin-bottom:20px;
 background:#0b1220;
 color:white;
+font-size:16px;
+
 }
 
 button{
+
 width:100%;
 padding:15px;
 border:none;
 border-radius:12px;
 background:#00b7ff;
 color:white;
+font-size:16px;
 font-weight:700;
 cursor:pointer;
-margin-top:10px;
+
 }
 
-.panel{
+button:hover{
+opacity:0.9;
+}
+
+.panel-container{
 display:none;
 }
 
 .card{
+
 background:#0b1220;
 padding:25px;
 border-radius:20px;
 margin-top:20px;
+
+}
+
+.card h2{
+margin-bottom:15px;
+color:#00b7ff;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="login-box">
+<div class="login-container" id="loginBox">
 
-<h1>Admin Login</h1>
+<h1>Login Administrador</h1>
 
 <input type="email" id="email" placeholder="Correo administrador">
 
 <input type="password" id="password" placeholder="Contraseña">
 
 <button onclick="login()">
+
 Iniciar Sesión
+
 </button>
 
 </div>
 
-<div class="panel" id="panel">
+<div class="panel-container" id="adminPanel">
 
 <h1>Panel Administrativo</h1>
 
 <div class="card">
+
 <h2>Gestión de Cotizaciones</h2>
-<p>Administración de solicitudes y clientes.</p>
+
+<p>
+Administración de solicitudes y clientes.
+</p>
+
 </div>
 
 <div class="card">
+
 <h2>Inventario</h2>
-<p>Administración de refacciones y componentes.</p>
+
+<p>
+Control de refacciones y componentes.
+</p>
+
 </div>
 
 <div class="card">
+
 <h2>Técnicos</h2>
-<p>Gestión de empleados y servicios.</p>
+
+<p>
+Gestión de empleados y órdenes de servicio.
+</p>
+
 </div>
 
 <div class="card">
+
 <h2>Configuración Web</h2>
-<p>Modificación visual y administrativa.</p>
+
+<p>
+Modificación visual y administrativa del sitio.
+</p>
+
 </div>
 
 </div>
@@ -146,19 +192,19 @@ const auth = firebase.auth();
 
 async function login(){
 
-const email=document.getElementById('email').value;
+const email = document.getElementById('email').value;
 
-const password=document.getElementById('password').value;
+const password = document.getElementById('password').value;
 
 try{
 
 await auth.signInWithEmailAndPassword(email,password);
 
-document.querySelector('.login-box').style.display='none';
+document.getElementById('loginBox').style.display='none';
 
-document.getElementById('panel').style.display='block';
+document.getElementById('adminPanel').style.display='block';
 
-alert('Bienvenido administrador');
+alert('Bienvenido Administrador');
 
 }catch(error){
 
@@ -171,4 +217,5 @@ alert(error.message);
 </script>
 
 </body>
+
 </html>
