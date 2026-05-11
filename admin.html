@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Panel | VERTICAL TECHNOLOGY</title>
+<title>Panel Admin | VERTICAL TECHNOLOGY</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -21,171 +18,128 @@ font-family:'Montserrat',sans-serif;
 }
 
 body{
-background:#0b1220;
+background:#081120;
 color:white;
 padding:40px;
-}
-
-.login-box,
-.dashboard{
-
-max-width:1200px;
-margin:auto;
-background:#121c2f;
-padding:40px;
-border-radius:25px;
-margin-top:40px;
-
 }
 
 h1{
-margin-bottom:30px;
+font-size:50px;
+margin-bottom:40px;
 color:#00b7ff;
 }
 
-input,
-textarea{
-
-width:100%;
-padding:15px;
-margin-bottom:20px;
-border:none;
-border-radius:12px;
-background:#0b1220;
-color:white;
-
-}
-
-button{
-
-padding:15px 25px;
-border:none;
-border-radius:12px;
-background:#00b7ff;
-color:white;
-font-weight:700;
-cursor:pointer;
-margin-top:10px;
-
-}
-
-.dashboard{
-display:none;
-}
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-
+.panel{
+max-width:1200px;
+margin:auto;
 }
 
 .card{
-
-background:#0b1220;
-padding:25px;
-border-radius:20px;
-
+background:#111c33;
+padding:35px;
+border-radius:25px;
+margin-bottom:30px;
 }
 
-.admin-product{
+.card h2{
+margin-bottom:25px;
+font-size:32px;
+color:#00b7ff;
+}
 
-background:#0f172a;
+input, textarea{
+width:100%;
+padding:18px;
+margin-bottom:20px;
+border:none;
+border-radius:12px;
+background:#0b1528;
+color:white;
+font-size:16px;
+}
+
+button{
+padding:18px 30px;
+border:none;
+border-radius:14px;
+background:#00b7ff;
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+button:hover{
+background:#0095d4;
+}
+
+.product{
+background:#0b1528;
 padding:20px;
 border-radius:20px;
 margin-top:20px;
-
+display:flex;
+gap:20px;
+align-items:center;
 }
 
-.admin-product img{
-
-height:220px;
+.product img{
+width:140px;
+height:140px;
 object-fit:cover;
 border-radius:15px;
-margin-bottom:15px;
+}
 
+.product-info{
+flex:1;
+}
+
+.product-info h3{
+font-size:26px;
+margin-bottom:10px;
+}
+
+.product-info p{
+margin-bottom:10px;
+color:#d6d6d6;
+}
+
+.price{
+font-size:24px;
+font-weight:800;
+color:#00b7ff;
+}
+
+.delete-btn{
+background:#ff3d3d;
+}
+
+.delete-btn:hover{
+background:#d92b2b;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<div class="panel">
 
-<div class="login-box" id="loginSection">
-
-<h1>
-Administrador
-</h1>
-
-<input
-type="email"
-id="adminEmail"
-placeholder="Correo administrador"
->
-
-<input
-type="password"
-id="adminPassword"
-placeholder="Contraseña"
->
-
-<button onclick="loginAdmin()">
-Iniciar Sesión
-</button>
-
-</div>
-
-<!-- DASHBOARD -->
-
-<div class="dashboard" id="dashboardSection">
-
-<h1>
-Dashboard Empresarial
-</h1>
-
-<button onclick="logoutAdmin()">
-Cerrar Sesión
-</button>
-
-<br><br>
-
-<div class="grid">
+<h1>Panel Empresarial</h1>
 
 <div class="card">
 
-<h2>
-Agregar Producto
-</h2>
+<h2>Agregar Producto</h2>
 
-<br>
+<input type="text" id="name" placeholder="Nombre producto">
 
-<input
-type="text"
-id="productName"
-placeholder="Nombre producto"
->
+<input type="text" id="price" placeholder="Precio">
 
-<input
-type="number"
-id="productPrice"
-placeholder="Precio"
->
+<textarea id="description" placeholder="Descripción"></textarea>
 
-<textarea
-id="productDescription"
-placeholder="Descripción"
-></textarea>
+<input type="text" id="image" placeholder="URL imagen GitHub">
 
-<input
-type="file"
-id="productImage"
->
-
-<button onclick="addProduct()">
+<button onclick="saveProduct()">
 Guardar Producto
 </button>
 
@@ -193,22 +147,114 @@ Guardar Producto
 
 <div class="card">
 
-<h2>
-Inventario
-</h2>
+<h2>Inventario</h2>
 
-<div id="productsList"></div>
+<div id="products"></div>
 
 </div>
 
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+
+const firebaseConfig = {
+apiKey: "AIzaSyCFuqPFMI66oc7sKMBTWAtJTUkvuCScubs",
+authDomain: "vertical-technology-592c7.firebaseapp.com",
+projectId: "vertical-technology-592c7",
+storageBucket: "vertical-technology-592c7.appspot.com",
+messagingSenderId: "852661748457",
+appId: "1:852661748457:web:61438c40c89ec5843ce678"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+async function saveProduct(){
+
+const name = document.getElementById('name').value;
+const price = document.getElementById('price').value;
+const description = document.getElementById('description').value;
+const image = document.getElementById('image').value;
+
+if(!name || !price || !description || !image){
+alert("Completa todos los campos");
+return;
+}
+
+await db.collection("productos").add({
+name,
+price,
+description,
+image,
+created: Date.now()
+});
+
+alert("Producto guardado");
+
+document.getElementById('name').value="";
+document.getElementById('price').value="";
+document.getElementById('description').value="";
+document.getElementById('image').value="";
+
+loadProducts();
+}
+
+async function deleteProduct(id){
+
+await db.collection("productos").doc(id).delete();
+
+loadProducts();
+}
+
+async function loadProducts(){
+
+const products = document.getElementById('products');
+
+products.innerHTML = "";
+
+const snapshot = await db.collection("productos").get();
+
+snapshot.forEach(doc=>{
+
+const product = doc.data();
+
+products.innerHTML += `
+
+<div class="product">
+
+<img src="${product.image}">
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<p>${product.description}</p>
+
+<div class="price">
+$${product.price} MXN
 </div>
 
-<!-- MODULE -->
+</div>
 
-<script type="module" src="./js/admin.js"></script>
+<button class="delete-btn" onclick="deleteProduct('${doc.id}')">
+Eliminar
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadProducts();
+
+</script>
 
 </body>
-
 </html>
