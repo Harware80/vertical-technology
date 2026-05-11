@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERTICAL TECHNOLOGY</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#0b1220;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.85);
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#00b7ff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600') center/cover;
+}
+
+.hero h1{
+font-size:65px;
+margin-bottom:20px;
+}
+
+.hero span{
+color:#00b7ff;
+}
+
+.hero p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+color:#d8d8d8;
+}
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 35px;
+background:#00b7ff;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:700;
+}
+
+section{
+padding:100px 20px;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+}
+
+.title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.title h2{
+font-size:48px;
+color:#00b7ff;
+margin-bottom:15px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:#121c2f;
+padding:35px;
+border-radius:25px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00b7ff;
+}
+
+.contact{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.form-box{
+background:#121c2f;
+padding:35px;
+border-radius:25px;
+}
+
+input, textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:12px;
+background:#0b1220;
+color:white;
+}
+
+textarea{
+height:140px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00b7ff;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#05070d;
+}
+
+#adminPanel{
+display:none;
+background:#121c2f;
+padding:40px;
+border-radius:25px;
+margin-top:50px;
+}
+
+#loginModal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.login-box{
+background:#121c2f;
+padding:40px;
+border-radius:25px;
+width:90%;
+max-width:400px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:42px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">VERTICAL TECHNOLOGY</div>
+
+<nav>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1 id="heroTitle">Especialistas en <span>Elevadores</span></h1>
+
+<p id="heroText">
+Mantenimiento preventivo, correctivo, modernización y venta de refacciones para elevadores con atención profesional y tecnología avanzada.
+</p>
+
+<a href="#contacto" class="btn">Solicitar Cotización</a>
+</div>
+</section>
+
+<section id="servicios">
+<div class="container">
+
+<div class="title">
+<h2>Servicios</h2>
+</div>
+
+<div class="services">
+
+<div class="card">
+<h3>Mantenimiento</h3>
+<p>Programas preventivos y correctivos para elevadores.</p>
+</div>
+
+<div class="card">
+<h3>Modernización</h3>
+<p>Actualización tecnológica y mejora de sistemas verticales.</p>
+</div>
+
+<div class="card">
+<h3>Refacciones</h3>
+<p>Venta de componentes y refacciones para elevadores.</p>
+</div>
+
+<div class="card">
+<h3>Emergencias</h3>
+<p>Atención rápida y soporte técnico especializado.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="contacto">
+<div class="container">
+
+<div class="title">
+<h2>Solicita tu Cotización</h2>
+</div>
+
+<div class="contact">
+
+<div class="form-box">
+<h3 style="margin-bottom:20px;color:#00b7ff;">Información</h3>
+
+<p style="line-height:2;">
+Empresa: VERTICAL TECHNOLOGY<br>
+Correo: luxascensores@gmail.com
+</p>
+</div>
+
+<div class="form-box">
+<h3 style="margin-bottom:20px;color:#00b7ff;">Formulario</h3>
+
+<form action="mailto:luxascensores@gmail.com" method="POST" enctype="text/plain">
+
+<input type="text" placeholder="Nombre completo" required>
+
+<input type="email" placeholder="Correo electrónico" required>
+
+<input type="tel" placeholder="Teléfono" required>
+
+<textarea placeholder="Describe tu requerimiento"></textarea>
+
+<button type="submit">Enviar Solicitud</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="adminPanel">
+
+<h2 style="margin-bottom:20px;color:#00b7ff;">Panel Administrativo</h2>
+
+<input type="text" id="newTitle" placeholder="Nuevo título principal">
+
+<button onclick="changeTitle()">Actualizar Título</button>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<p id="footerText">
+© 2026 VERTICAL TECHNOLOGY - Todos los derechos reservados.
+</p>
+</footer>
+
+<div id="loginModal">
+<div class="login-box">
+
+<h2 style="margin-bottom:25px;color:#00b7ff;">Acceso Administrativo</h2>
+
+<input type="text" id="adminEmail" placeholder="Correo">
+
+<input type="password" id="adminPassword" placeholder="Contraseña">
+
+<button onclick="login()">Iniciar Sesión</button>
+
+</div>
+</div>
+
+<button onclick="openLogin()" style="
+position:fixed;
+bottom:25px;
+right:25px;
+padding:15px 25px;
+border-radius:50px;
+background:#00b7ff;
+border:none;
+color:white;
+font-weight:700;
+cursor:pointer;
+z-index:999;
+">
+Admin
+</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCFuqPFMI66oc7sKMBTWAtJTUkvuCScubs",
+  authDomain: "vertical-technology-592c7.firebaseapp.com",
+  projectId: "vertical-technology-592c7",
+  storageBucket: "vertical-technology-592c7.firebasestorage.app",
+  messagingSenderId: "852661748457",
+  appId: "1:852661748457:web:61438c40c89ec5843ce678",
+  measurementId: "G-CRRH733QK7"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+function openLogin(){
+document.getElementById('loginModal').style.display='flex';
+}
+
+async function login(){
+
+const email=document.getElementById('adminEmail').value;
+const password=document.getElementById('adminPassword').value;
+
+try{
+
+await auth.signInWithEmailAndPassword(email,password);
+
+document.getElementById('loginModal').style.display='none';
+document.getElementById('adminPanel').style.display='block';
+
+alert('Bienvenido al panel administrativo');
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+function changeTitle(){
+
+const title=document.getElementById('newTitle').value;
+
+document.getElementById('heroTitle').innerHTML=title;
+
+}
+</script>
+
+</body>
+</html>
