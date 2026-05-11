@@ -1,813 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VERTICAL TECHNOLOGY | Mantenimiento y Refacciones para Elevadores</title>
-  <meta name="description" content="Empresa especializada en mantenimiento, modernización, reparación y venta de refacciones para elevadores." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERTICAL TECHNOLOGY</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      background: #0b0f1a;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
 
-    header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+body{
+background:#0b1220;
+color:white;
+overflow-x:hidden;
+}
 
-    .navbar {
-      max-width: 1400px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.85);
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: #00b7ff;
-      letter-spacing: 2px;
-    }
+.logo{
+font-size:28px;
+font-weight:800;
+color:#00b7ff;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600') center/cover;
+}
 
-    .nav-links a:hover {
-      color: #00b7ff;
-    }
+.hero h1{
+font-size:65px;
+margin-bottom:20px;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 150px 20px 100px;
-      background:
-      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
-    }
+.hero span{
+color:#00b7ff;
+}
 
-    .hero-content {
-      max-width: 900px;
-    }
+.hero p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+color:#d8d8d8;
+}
 
-    .hero h1 {
-      font-size: 70px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 35px;
+background:#00b7ff;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:700;
+}
 
-    .hero h1 span {
-      color: #00b7ff;
-    }
+section{
+padding:100px 20px;
+}
 
-    .hero p {
-      font-size: 20px;
-      color: #d8d8d8;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
+.container{
+max-width:1300px;
+margin:auto;
+}
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.title{
+text-align:center;
+margin-bottom:60px;
+}
 
-    .btn {
-      padding: 15px 35px;
-      border-radius: 50px;
-      border: none;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-      cursor: pointer;
-    }
+.title h2{
+font-size:48px;
+color:#00b7ff;
+margin-bottom:15px;
+}
 
-    .btn-primary {
-      background: #00b7ff;
-      color: #fff;
-    }
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
 
-    .btn-primary:hover {
-      background: #0096d1;
-      transform: translateY(-3px);
-    }
+.card{
+background:#121c2f;
+padding:35px;
+border-radius:25px;
+transition:0.3s;
+text-decoration:none;
+color:white;
+display:block;
+}
 
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid #00b7ff;
-      color: #00b7ff;
-    }
+.card:hover{
+transform:translateY(-10px);
+}
 
-    .btn-secondary:hover {
-      background: #00b7ff;
-      color: #fff;
-    }
+.card h3{
+margin-bottom:15px;
+color:#00b7ff;
+}
 
-    section {
-      padding: 100px 20px;
-    }
-
-    .container {
-      max-width: 1300px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .section-title h2 {
-      font-size: 50px;
-      margin-bottom: 15px;
-      color: #00b7ff;
-    }
-
-    .section-title p {
-      color: #c9c9c9;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.7;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: #111827;
-      padding: 40px 30px;
-      border-radius: 25px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: #00b7ff;
-      box-shadow: 0 10px 40px rgba(0,183,255,0.15);
-    }
-
-    .service-card h3 {
-      margin-bottom: 20px;
-      color: #00b7ff;
-      font-size: 24px;
-    }
-
-    .service-card p {
-      color: #d8d8d8;
-      line-height: 1.8;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about img {
-      width: 100%;
-      border-radius: 25px;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-    }
-
-    .about-content h2 {
-      font-size: 50px;
-      margin-bottom: 20px;
-      color: #00b7ff;
-    }
-
-    .about-content p {
-      color: #d9d9d9;
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .stat-box {
-      background: #111827;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .stat-box h3 {
-      font-size: 40px;
-      color: #00b7ff;
-      margin-bottom: 10px;
-    }
-
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 50px;
-    }
-
-    .contact-info {
-      background: #111827;
-      padding: 40px;
-      border-radius: 25px;
-    }
-
-    .contact-info h3 {
-      margin-bottom: 25px;
-      color: #00b7ff;
-      font-size: 30px;
-    }
-
-    .contact-info p {
-      margin-bottom: 20px;
-      line-height: 1.8;
-      color: #d8d8d8;
-    }
-
-    .contact-form {
-      background: #111827;
-      padding: 40px;
-      border-radius: 25px;
-    }
-
-    .contact-form h3 {
-      color: #00b7ff;
-      margin-bottom: 25px;
-      font-size: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: #0f172a;
-      color: white;
-      font-size: 15px;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 140px;
-    }
-
-    footer {
-      background: #05070c;
-      padding: 50px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    footer h3 {
-      font-size: 28px;
-      color: #00b7ff;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #cfcfcf;
-      margin-bottom: 10px;
-    }
-
-    @media(max-width: 768px) {
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .section-title h2,
-      .about-content h2 {
-        font-size: 36px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
-  <script>
-    // CONFIGURACIÓN FIREBASE
-    // REEMPLAZA ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCFuqPFMI66oc7sKMBTWAtJTUkvuCScubs",
-      authDomain: "vertical-technology-592c7.firebaseapp.com",
-      projectId: "vertical-technology-592c7",
-      storageBucket: "vertical-technology-592c7.firebasestorage.app",
-      messagingSenderId: "852661748457",
-      appId: "1:852661748457:web:61438c40c89ec5843ce678",
-      measurementId: "G-CRRH733QK7"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-  </script>
-
+footer{
+padding:40px;
+text-align:center;
+background:#05070d;
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="navbar">
-      <div class="logo">VERTICAL TECHNOLOGY</div>
-
-      <div class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <h1 id="heroMainTitle">Especialistas en <span>Elevadores</span> y Tecnología Vertical</h1>
-
-      <p id="heroDescription">
-        En VERTICAL TECHNOLOGY ofrecemos mantenimiento preventivo y correctivo,
-        modernización de elevadores, venta de refacciones originales y soluciones
-        integrales para equipos de transporte vertical con altos estándares de calidad,
-        seguridad y eficiencia.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#contacto" class="btn btn-primary">Solicitar Cotización</a>
-        <a href="#servicios" class="btn btn-secondary">Nuestros Servicios</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="servicios">
-    <div class="container">
-      <div class="section-title">
-        <h2>Servicios Profesionales</h2>
-        <p>
-          Soluciones especializadas para edificios residenciales, corporativos,
-          hospitales, hoteles e industrias.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Mantenimiento Preventivo</h3>
-          <p>
-            Programas de mantenimiento calendarizado para garantizar el correcto
-            funcionamiento y prolongar la vida útil de los elevadores.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>Reparaciones Correctivas</h3>
-          <p>
-            Diagnóstico y reparación profesional de fallas eléctricas, mecánicas
-            y electrónicas en sistemas de elevación.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>Venta de Refacciones</h3>
-          <p>
-            Suministro de componentes y refacciones para diferentes marcas y modelos
-            de elevadores y escaleras eléctricas.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3 id="card2">Modernización</h3>
-          <p>
-            Actualización tecnológica de equipos antiguos para mejorar rendimiento,
-            seguridad y eficiencia energética.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>Atención de Emergencias</h3>
-          <p>
-            Servicio técnico especializado para atención rápida de fallas críticas
-            y rescates técnicos.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <h3>Inspecciones Técnicas</h3>
-          <p>
-            Evaluación profesional de sistemas de elevación y elaboración de reportes
-            técnicos detallados.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="nosotros">
-    <div class="container about">
-
-      <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1974&auto=format&fit=crop" alt="Elevador moderno">
-
-      <div class="about-content">
-        <h2>Sobre VERTICAL TECHNOLOGY</h2>
-
-        <p>
-          Somos una empresa enfocada en brindar soluciones integrales en el área
-          de transporte vertical, ofreciendo servicios especializados en mantenimiento,
-          reparación, modernización y suministro de refacciones para elevadores.
-        </p>
-
-        <p>
-          Nuestro objetivo es proporcionar seguridad, confianza y eficiencia a cada
-          uno de nuestros clientes mediante atención profesional y tecnología de alto nivel.
-        </p>
-
-        <div class="stats">
-          <div class="stat-box">
-            <h3>24/7</h3>
-            <p>Soporte Técnico</p>
-          </div>
-
-          <div class="stat-box">
-            <h3>100%</h3>
-            <p>Compromiso</p>
-          </div>
-
-          <div class="stat-box">
-            <h3>PRO</h3>
-            <p>Calidad Profesional</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Solicita tu Cotización</h2>
-        <p>
-          Envíanos la información de tu proyecto, mantenimiento o requerimiento
-          técnico y recibirás atención personalizada.
-        </p>
-      </div>
-
-      <div class="contact-wrapper">
-
-        <div class="contact-info">
-          <h3>Información de Contacto</h3>
-
-          <p>
-            <strong>Empresa:</strong><br>
-            VERTICAL TECHNOLOGY
-          </p>
-
-          <p>
-            <strong>Especialidad:</strong><br>
-            Mantenimiento, reparación y venta de refacciones para elevadores.
-          </p>
-
-          <p>
-            <strong>Correo:</strong><br>
-            luxascensores@gmail.com
-          </p>
-
-          <p>
-            <strong>Atención:</strong><br>
-            Cotizaciones, soporte técnico y atención comercial.
-          </p>
-        </div>
-
-        <div class="contact-form">
-          <h3>Formulario de Cotización</h3>
-
-          <form action="mailto:luxascensores@gmail.com" method="POST" enctype="text/plain">
-
-            <div class="form-group">
-              <input type="text" name="Nombre" placeholder="Nombre completo" required>
-            </div>
-
-            <div class="form-group">
-              <input type="email" name="Correo" placeholder="Correo electrónico" required>
-            </div>
-
-            <div class="form-group">
-              <input type="tel" name="Telefono" placeholder="Número telefónico" required>
-            </div>
-
-            <div class="form-group">
-              <input type="text" name="Empresa" placeholder="Empresa o edificio">
-            </div>
-
-            <div class="form-group">
-              <select name="Servicio">
-                <option value="">Seleccione un servicio</option>
-                <option>Mantenimiento Preventivo</option>
-                <option>Reparación Correctiva</option>
-                <option>Venta de Refacciones</option>
-                <option>Modernización</option>
-                <option>Inspección Técnica</option>
-                <option>Emergencia Técnica</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <textarea name="Mensaje" placeholder="Describa su requerimiento o falla"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%;">
-              Enviar Solicitud
-            </button>
-
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <h3>VERTICAL TECHNOLOGY</h3>
-
-    <p>
-      Especialistas en mantenimiento, reparación y modernización de elevadores.
-    </p>
-
-    <p>
-      Contacto: luxascensores@gmail.com
-    </p>
-
-    <p id="footerText">
-      © 2026 VERTICAL TECHNOLOGY - Todos los derechos reservados.
-    </p>
-  </footer>
-
-  <script>
-    function openAdminPanel() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
-
-    async function loginAdmin() {
-      const email = document.getElementById('adminUsername').value;
-      const password = document.getElementById('adminPassword').value;
-
-      try {
-        await auth.signInWithEmailAndPassword(email, password);
-
-        document.getElementById('loginModal').style.display = 'none';
-        document.getElementById('adminPanel').style.display = 'block';
-        document.getElementById('currentAdmin').innerHTML = email;
-
-        alert('Bienvenido al panel administrativo');
-      } catch(error) {
-        alert(error.message);
-      }
-    }
-
-    function closeLoginModal() {
-      document.getElementById('loginModal').style.display = 'none';
-    }
-
-    function changeHeroTitle() {
-      const value = document.getElementById('heroTitleInput').value;
-      document.getElementById('heroMainTitle').innerHTML = value;
-    }
-
-    function changeHeroText() {
-      const value = document.getElementById('heroTextInput').value;
-      document.getElementById('heroDescription').innerHTML = value;
-    }
-
-    function changeFooterText() {
-      const value = document.getElementById('footerInput').value;
-      document.getElementById('footerText').innerHTML = value;
-    }
-
-    function changePrimaryColor() {
-      const color = document.getElementById('colorInput').value;
-      document.documentElement.style.setProperty('--primary-color', color);
-      document.querySelectorAll('.btn-primary, .logo, .section-title h2, .service-card h3').forEach(el => {
-        el.style.color = color;
-      });
-    }
-
-    function updateContactEmail() {
-      const email = document.getElementById('contactEmailInput').value;
-      document.getElementById('contactEmail').innerHTML = email;
-    }
-
-    function updatePhone() {
-      const phone = document.getElementById('phoneInput').value;
-      document.getElementById('phoneText').innerHTML = phone;
-    }
-
-    function updateWhatsApp() {
-      const whatsapp = document.getElementById('whatsappInput').value;
-      document.getElementById('whatsappText').innerHTML = whatsapp;
-    }
-
-    function updateService(cardId, inputId) {
-      document.getElementById(cardId).innerHTML = document.getElementById(inputId).value;
-    }
-
-    function updateBackground() {
-      const image = document.getElementById('backgroundInput').value;
-      document.querySelector('.hero').style.background = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('${image}') center/cover no-repeat`;
-    }
-  </script>
-
-  <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:10000; justify-content:center; align-items:center; padding:20px;">
-
-    <div style="background:#111827; padding:40px; border-radius:25px; width:100%; max-width:450px; border:1px solid rgba(255,255,255,0.08);">
-
-      <h2 style="margin-bottom:25px; color:#00b7ff; text-align:center;">
-        Acceso Administrativo
-      </h2>
-
-      <div class="form-group">
-        <input type="text" id="adminUsername" placeholder="Usuario">
-      </div>
-
-      <div class="form-group">
-        <input type="password" id="adminPassword" placeholder="Contraseña">
-      </div>
-
-      <button onclick="loginAdmin()" class="btn btn-primary" style="width:100%; margin-bottom:15px;">
-        Iniciar Sesión
-      </button>
-
-      <button onclick="closeLoginModal()" class="btn btn-secondary" style="width:100%;">
-        Cancelar
-      </button>
-
-      <div style="margin-top:25px; color:#cfcfcf; font-size:14px; line-height:1.8;">
-        <strong>Usuarios autorizados:</strong><br><br>
-
-        Usuario: admin<br>
-        Contraseña: VERTICAL2026<br><br>
-
-        Usuario: supervisor<br>
-        Contraseña: VT2026SUP
-      </div>
-
-    </div>
-
-  </div>
-
-  <div style="position:fixed; bottom:30px; right:30px; z-index:9999;">
-    <button onclick="openAdminPanel()" class="btn btn-primary">
-      Panel Admin
-    </button>
-  </div>
-
-  <section id="adminPanel" style="display:none; background:#050b16; border-top:2px solid #00b7ff; padding:80px 20px;">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Panel Administrativo</h2>
-        <p style="margin-top:15px; color:#00b7ff; font-weight:700;">
-          Usuario conectado: <span id="currentAdmin">Administrador</span>
-        </p>
-      </div>
-
-      <div class="services-grid">
-
-        <div class="service-card">
-          <h3>Editar Título Principal</h3>
-          <div class="form-group">
-            <input type="text" id="heroTitleInput" placeholder="Nuevo título principal">
-          </div>
-          <button class="btn btn-primary" onclick="changeHeroTitle()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Editar Descripción</h3>
-          <div class="form-group">
-            <textarea id="heroTextInput" placeholder="Nueva descripción"></textarea>
-          </div>
-          <button class="btn btn-primary" onclick="changeHeroText()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Editar Footer</h3>
-          <div class="form-group">
-            <textarea id="footerInput" placeholder="Nuevo footer"></textarea>
-          </div>
-          <button class="btn btn-primary" onclick="changeFooterText()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Cambiar Color Principal</h3>
-          <div class="form-group">
-            <input type="color" id="colorInput">
-          </div>
-          <button class="btn btn-primary" onclick="changePrimaryColor()">Aplicar Color</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Actualizar Correo</h3>
-          <div class="form-group">
-            <input type="email" id="contactEmailInput" placeholder="Nuevo correo">
-          </div>
-          <button class="btn btn-primary" onclick="updateContactEmail()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Actualizar Teléfono</h3>
-          <div class="form-group">
-            <input type="text" id="phoneInput" placeholder="Nuevo teléfono">
-          </div>
-          <button class="btn btn-primary" onclick="updatePhone()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Actualizar WhatsApp</h3>
-          <div class="form-group">
-            <input type="text" id="whatsappInput" placeholder="Nuevo WhatsApp">
-          </div>
-          <button class="btn btn-primary" onclick="updateWhatsApp()">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Cambiar Fondo Principal</h3>
-          <div class="form-group">
-            <input type="text" id="backgroundInput" placeholder="URL de imagen">
-          </div>
-          <button class="btn btn-primary" onclick="updateBackground()">Actualizar Fondo</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Servicio 1</h3>
-          <div class="form-group">
-            <input type="text" id="service1Input" placeholder="Nuevo nombre">
-          </div>
-          <button class="btn btn-primary" onclick="updateService('service1Title','service1Input')">Actualizar</button>
-        </div>
-
-        <div class="service-card">
-          <h3>Servicio 2</h3>
-          <div class="form-group">
-            <input type="text" id="service2Input" placeholder="Nuevo nombre">
-          </div>
-          <button class="btn btn-primary" onclick="updateService('service2Title','service2Input')">Actualizar</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
+<header>
+<div class="logo">VERTICAL TECHNOLOGY</div>
+
+<nav>
+<a href="#servicios">Servicios</a>
+<a href="admin.html">Panel Admin</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Especialistas en <span>Elevadores</span></h1>
+
+<p>
+Mantenimiento preventivo, correctivo, modernización y venta de refacciones para elevadores con atención profesional y tecnología avanzada.
+</p>
+
+<a href="#servicios" class="btn">Nuestros Servicios</a>
+</div>
+</section>
+
+<section id="servicios">
+<div class="container">
+
+<div class="title">
+<h2>Servicios</h2>
+</div>
+
+<div class="services">
+
+<a href="mantenimiento.html" class="card">
+<h3>Mantenimiento Preventivo</h3>
+<p>
+Programas especializados para garantizar el correcto funcionamiento de elevadores.
+</p>
+</a>
+
+<a href="reparaciones.html" class="card">
+<h3>Reparaciones Correctivas</h3>
+<p>
+Diagnóstico y reparación profesional de fallas mecánicas y electrónicas.
+</p>
+</a>
+
+<a href="refacciones.html" class="card">
+<h3>Venta de Refacciones</h3>
+<p>
+Suministro profesional de componentes y refacciones para elevadores.
+</p>
+</a>
+
+<a href="modernizacion.html" class="card">
+<h3>Modernización</h3>
+<p>
+Actualización tecnológica de sistemas de elevación y automatización.
+</p>
+</a>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>
+© 2026 VERTICAL TECHNOLOGY - Todos los derechos reservados.
+</p>
+</footer>
 
 </body>
 </html>
