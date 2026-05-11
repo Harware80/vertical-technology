@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Panel Administrativo | VERTICAL TECHNOLOGY</title>
+<title>Admin Panel | VERTICAL TECHNOLOGY</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -23,14 +23,13 @@ font-family:'Montserrat',sans-serif;
 body{
 background:#0b1220;
 color:white;
-min-height:100vh;
 padding:40px;
 }
 
-.login-container,
-.panel-container{
+.login-box,
+.dashboard{
 
-max-width:500px;
+max-width:1200px;
 margin:auto;
 background:#121c2f;
 padding:40px;
@@ -40,44 +39,46 @@ margin-top:40px;
 }
 
 h1{
-text-align:center;
 margin-bottom:30px;
 color:#00b7ff;
 }
 
-input{
+input,
+textarea{
 
 width:100%;
 padding:15px;
+margin-bottom:20px;
 border:none;
 border-radius:12px;
-margin-bottom:20px;
 background:#0b1220;
 color:white;
-font-size:16px;
 
 }
 
 button{
 
-width:100%;
-padding:15px;
+padding:15px 25px;
 border:none;
 border-radius:12px;
 background:#00b7ff;
 color:white;
-font-size:16px;
 font-weight:700;
 cursor:pointer;
+margin-top:10px;
 
 }
 
-button:hover{
-opacity:0.9;
-}
-
-.panel-container{
+.dashboard{
 display:none;
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+
 }
 
 .card{
@@ -85,13 +86,25 @@ display:none;
 background:#0b1220;
 padding:25px;
 border-radius:20px;
+
+}
+
+.admin-product{
+
+background:#0f172a;
+padding:20px;
+border-radius:20px;
 margin-top:20px;
 
 }
 
-.card h2{
+.admin-product img{
+
+height:220px;
+object-fit:cover;
+border-radius:15px;
 margin-bottom:15px;
-color:#00b7ff;
+
 }
 
 </style>
@@ -100,121 +113,101 @@ color:#00b7ff;
 
 <body>
 
-<div class="login-container" id="loginBox">
+<!-- LOGIN -->
 
-<h1>Login Administrador</h1>
+<div class="login-box" id="loginSection">
 
-<input type="email" id="email" placeholder="Correo administrador">
+<h1>
+Administrador
+</h1>
 
-<input type="password" id="password" placeholder="Contraseña">
+<input
+type="email"
+id="adminEmail"
+placeholder="Correo administrador"
+>
 
-<button onclick="login()">
+<input
+type="password"
+id="adminPassword"
+placeholder="Contraseña"
+>
 
+<button onclick="loginAdmin()">
 Iniciar Sesión
-
 </button>
 
 </div>
 
-<div class="panel-container" id="adminPanel">
+<!-- DASHBOARD -->
 
-<h1>Panel Administrativo</h1>
+<div class="dashboard" id="dashboardSection">
 
-<div class="card">
+<h1>
+Dashboard Empresarial
+</h1>
 
-<h2>Gestión de Cotizaciones</h2>
+<button onclick="logoutAdmin()">
+Cerrar Sesión
+</button>
 
-<p>
-Administración de solicitudes y clientes.
-</p>
+<br><br>
 
-</div>
-
-<div class="card">
-
-<h2>Inventario</h2>
-
-<p>
-Control de refacciones y componentes.
-</p>
-
-</div>
+<div class="grid">
 
 <div class="card">
 
-<h2>Técnicos</h2>
+<h2>
+Agregar Producto
+</h2>
 
-<p>
-Gestión de empleados y órdenes de servicio.
-</p>
+<br>
+
+<input
+type="text"
+id="productName"
+placeholder="Nombre producto"
+>
+
+<input
+type="number"
+id="productPrice"
+placeholder="Precio"
+>
+
+<textarea
+id="productDescription"
+placeholder="Descripción"
+></textarea>
+
+<input
+type="file"
+id="productImage"
+>
+
+<button onclick="addProduct()">
+Guardar Producto
+</button>
 
 </div>
 
 <div class="card">
 
-<h2>Configuración Web</h2>
+<h2>
+Inventario
+</h2>
 
-<p>
-Modificación visual y administrativa del sitio.
-</p>
+<div id="productsList"></div>
+
+</div>
 
 </div>
 
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<!-- MODULE -->
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-
-<script>
-
-const firebaseConfig = {
-
-apiKey: "AIzaSyCFuqPFMI66oc7sKMBTWAtJTUkvuCScubs",
-
-authDomain: "vertical-technology-592c7.firebaseapp.com",
-
-projectId: "vertical-technology-592c7",
-
-storageBucket: "vertical-technology-592c7.firebasestorage.app",
-
-messagingSenderId: "852661748457",
-
-appId: "1:852661748457:web:61438c40c89ec5843ce678",
-
-measurementId: "G-CRRH733QK7"
-
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-
-async function login(){
-
-const email = document.getElementById('email').value;
-
-const password = document.getElementById('password').value;
-
-try{
-
-await auth.signInWithEmailAndPassword(email,password);
-
-document.getElementById('loginBox').style.display='none';
-
-document.getElementById('adminPanel').style.display='block';
-
-alert('Bienvenido Administrador');
-
-}catch(error){
-
-alert(error.message);
-
-}
-
-}
-
-</script>
+<script type="module" src="./js/admin.js"></script>
 
 </body>
 
